@@ -1,0 +1,107 @@
+* {
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+
+}
+h2{
+    text-align: center;
+}
+h3{
+    background-color: #9EBC9F;
+    height: 50px;
+    font-size: 30px;
+}
+.formulari{
+    border: 1px solid black;
+    width: 40%;
+    text-align: center;
+    margin: auto;
+
+}
+.taula{
+    border: 1px solid black;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+}
+header{
+    align-items: center;
+    background-color: #9EBC9F;
+    height: 80px;
+    display: flex;
+    width: 100%;
+}
+.nav{
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+}
+.gestio{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    
+}
+.gestion{
+    padding-left: 2%;
+    padding-right: 2%;
+    align-items: center;
+    text-decoration: none;
+}
+.menu{
+    padding-left: 2%;
+    padding-right: 2%;
+    align-items: center;
+    text-decoration: none;}
+footer{
+    background-color: #9EBC9F;
+    height: 50px;
+    width: 100%;
+    bottom: 0;
+    margin-top: 30%;
+}
+.logo{
+    height: 100px;
+    width: 100px;
+
+}
+.buscador{
+    border: 1px solid black;
+    border-radius: 50px;
+    width: 40%;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: auto;
+    background-color: #D3B88C;
+}
+.alta{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.registra{
+    
+    text-decoration: none;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+    background-color: #D3B88C;
+    border-radius: 15px;
+}
+a:link{
+    color: black;
+    text-decoration: none;
+}
+a:visited{
+    color: black;
+}
+.photo{
+    height: 50px;
+    width: 100px;
+}
+.titols{
+    background-color: #D3B88C;
+}
