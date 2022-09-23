@@ -38,9 +38,8 @@
                 $data_inici = $_POST['data_inici'];
                 $data_final = $_POST['data_final'];
                 $dni_professor = $_POST['dni_professor'];
-                $visible = $_POST['visible'];
 
-                $sql = "INSERT INTO cursos VALUES ('$codi_curs', '$nom', '$descripcio', '$hores', '$data_inici', '$data_final', '$dni_professor', '$visible')";
+                $sql = "INSERT INTO cursos VALUES ('$codi_curs', '$nom', '$descripcio', '$hores', '$data_inici', '$data_final', '$dni_professor', 'si')";
                 $consulta = mysqli_query($conexio,$sql);
 
                 if(!$consulta){
@@ -81,7 +80,7 @@
                         <br></br>
                         <input type="date" name="data_final" placeholder="Data Final" required>
                         <br></br>
-                        Professor que imparteix: <select name="select" id="select">
+                        Professor que imparteix: <select name="dni_professor" id="dni_professor">
                     <?php
                         $linies = mysqli_num_rows($consulta);
                         for($i = 0;$i < $linies; $i++){

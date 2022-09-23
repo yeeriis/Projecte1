@@ -20,9 +20,9 @@
                 mysqli_connect_error();
             }else{
                 $dni_professor = $_POST['dni_professor'];
-                $fotografia = $_POST['fotografia'];
-                if ($fotografia!=''){
-                    if (unlink($fotografia)){
+                $oldfotografia = $_POST['oldfoto'];
+                if ($oldfotografia!=''){
+                    if (unlink($oldfotografia)){
                         echo"<p>Fotografia anterior eliminada.</p>";
                     }else{
                         echo"<p>Error! No s'ha pogut eliminar la fotografia.</p>";
@@ -39,7 +39,7 @@
                     $fotografia = $idUnico.".".$extensio;
                     move_uploaded_file ($_FILES['fotografia']['tmp_name'],
                     $nombreDirectorio.$fotografia);
-                    $sql = "UPDATE professors SET fotografia='img/$fotografia' WHERE dni_professor LIKE '$dni_professor'";
+                    $sql = "UPDATE professors SET fotografia='imgprofes/$fotografia' WHERE dni_professor LIKE '$dni_professor'";
                 }else{
                     print ("<p>No s'ha pogut pujar la fotografia nova</p>");
                     $sql = "UPDATE professors SET fotografia='' WHERE dni_professor LIKE '$dni_professor'";
@@ -50,16 +50,16 @@
                     echo "Error! Query no vàlida.".$sql; 
                     echo "<br>";
                     echo "Redirigint...";
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_profes.php'>";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2555555555555555555555555;URL=gestio_profes.php'>";
                 }else{
                    echo "Fotografia modificada correctament.";
-                   echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_profes.php'>";
+                   echo "<META HTTP-EQUIV='REFRESH' CONTENT='55555555555555555555552;URL=gestio_profes.php'>";
                 }
             }
         }else{
             if ($_REQUEST['dni_professor']) {
                 $dni_professor = $_REQUEST['dni_professor'];
-                // $fotografia = $_REQUEST['fotografia'];
+                $oldfotografia = $_REQUEST['oldfoto'];
                 echo "<header>";
                         echo "<a href='index.php'><img src='img/logo-infobdn.svg' alt='logo infobdn' class='logo'/></a>";
                         echo "<nav class='nav'>";
@@ -71,11 +71,12 @@
                         echo "</header>";
                 echo "<h2> Modificar la teva fotografia </h2>";
                 echo "<form action='editarfoto.php' ENCTYPE='multipart/form-data' class='formulari' method='post'>";
-                // echo "<br>";
-                // echo "<br>";
-                // echo "<img with='100px' height='100px' src='$fotografia'>";
                 echo "<br>";
                 echo "<br>";
+                echo "<img with='100px' height='100px' src='$oldfotografia'>";
+                echo "<br>";
+                echo "<br>";
+                echo "<input readonly class='ocult' type='text' name='oldfoto' id='oldfoto' value='$oldfotografia'>";
                 echo "DNI: <input readonly class='ocult' type='text' name='dni_professor' id='dni_professor' value='$dni_professor'>";
                 echo "<br>";
                 echo "<br>";

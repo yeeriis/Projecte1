@@ -96,7 +96,7 @@
                         echo "<td>".$profe['titol_academic']."</td>";
                         echo "<td><img src=".$profe['fotografia']." height='40px'></img></td>";
                         echo "<td><a href='editarprofe.php?dni_professor=".$profe['dni_professor']."'><img src='img/lapiz.png' height='40px' width='40px'</a></td>";
-                        echo "<td><a href='editarfoto.php?dni_professor=".$profe['dni_professor']."'><img src='img/editfoto.png' height='40px' width='40px'</a></td>";
+                        echo "<td><a href='editarfoto.php?dni_professor=".$profe['dni_professor']."&oldfoto=".$profe['fotografia']."'><img src='img/editfoto.png' height='40px' width='40px'</a></td>";
                         if($profe['visible']==="1"){
                             echo "<td>Actiu</td>";
                             echo "<td><a href='delprofe.php?id=".$profe['dni_professor']."'><img src='img/pngwing.png' height='40px' width='40px'></a></td>";
