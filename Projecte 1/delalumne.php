@@ -16,7 +16,7 @@ if (isset($_SESSION["user"])){
         // Controlamos posibles errores
         if (!$consulta){
             echo mysqli_error($conexion)."<br>";
-            echo "Error querry no valida ".$sql;
+            echo "Error! Query no valida ".$sql;
         }else{
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=gestio_alumnes.php'>";
         }

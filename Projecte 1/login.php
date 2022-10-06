@@ -12,27 +12,57 @@
     <link rel="stylesheet" href="styles/login.css" type="text/css">
     <title>Login usuaris</title>
 </head>
-
 <body>
 <?php
-if(!empty($_POST['usuari']) && !empty($_POST['contrasenya'])){
-    $usuari = $_POST['usuari'];
-    $contrasenya = $_POST['contrasenya'];
-    $passwdmd5 = md5($contrasenya);
-        if($usuari == $_POST['usuari'] && $contrasenya == $_POST['contrasenya']){
-            $_SESSION['usuari'] =  $usuari; //Creemos una sesión de usuario con el nombre del usuario anteriormente registrado. 
-            ?>
-            <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:cursos.php"/>
-            <?php
+
+    $conexio = mysqli_connect("localhost","root","","infobdn");
+    if($_POST){
+        if ($conexio == false){
+            mysqli_connect_error();
         }else{
-            print("Has d'esta validat per veure aquesta pàgina");
-        ?>
-            <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:login.php"/>
-        <?php
+            
+            $nom = $_POST['usuari'];
+            $contrasenya = $_POST['password'];
+            $passwdmd5 = md5($contrasenya);
+            $tipus = $_POST['select'];
+
+            if($tipus == "prof"){
+                $sql = "SELECT * FROM professors WHERE nom= '$nom' AND contrasenya= '$passwdmd5'";
+                $consulta = mysqli_query($conexio,$sql);
+                $linies = mysqli_num_rows($consulta);
+                $usuario = mysqli_fetch_assoc($consulta);
+                if($linies == 1){
+                    $_SESSION['nom'] = $nom;
+                    $_SESSION['rol'] = $tipus;
+                    $_SESSION['dni_professor'] = $usuario['dni_professor'];
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:cursosprof.php'/>";
+                }
+                else{
+                    echo "Error!";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:index.php'/>";
+
+                }
+            }else{
+                $sql = "SELECT * FROM alumnes WHERE nom= '$nom' AND contrasenya= '$passwdmd5'";
+                $consulta = mysqli_query($conexio,$sql);
+                $linies = mysqli_num_rows($consulta);
+                $usuario = mysqli_fetch_assoc($consulta);
+                if($linies == 1){
+                    $_SESSION['nom'] = $nom;
+                    $_SESSION['rol'] = $tipus;
+                    $_SESSION['dni_alumne'] = $usuario['dni_alumne'];
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:cursosalum.php'/>";
+                }
+                else{
+                    echo $sql;
+                    echo "Error!";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:index.php'/>";
+
+                }
+            }
         }
-        
     }else{
-        ?>
+    ?>
     <header>
         <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
@@ -43,12 +73,17 @@ if(!empty($_POST['usuari']) && !empty($_POST['contrasenya'])){
         </nav>
     </header>
     <h2>Benvingut/da al portal de cursos d'informàtica!</h2>
-    <form action="login.php" method="post" class="formulari">
+    <form name="formulari" action="login.php" method="POST" class="formulari">
         <h3>Inicia Sessió:</h3>
-        <input type="text" name="nom" placeholder="Usuari" required><br>
+        <input type="text" name="usuari" placeholder="Usuari" class="invisible" required><br>
         <br>
-        <input type="password" placeholder="Contrasenya" required><br>
+        <input type="password" name="password" placeholder="Contrasenya" class="invisible" required><br>
         <br>
+        Professor: <input type="radio"  maxlength="15" id="professor" name="select" value="prof" required/>
+        <br/>
+        Alumne: <input type="radio"  maxlength="15" id="alumne" name="select" value="alum" required/>
+        <br/>
+        <br/>
         <input type="submit" name="Enviar" value="Enviar">
         <br>
         <p>No estàs registrat? Clica <a href="alta.php">aquí</a></p>
@@ -56,7 +91,7 @@ if(!empty($_POST['usuari']) && !empty($_POST['contrasenya'])){
     <footer>
     </footer>
     <?php
-        }
+    }
     ?>
 </body>
 </html>

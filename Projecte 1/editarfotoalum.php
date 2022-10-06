@@ -19,7 +19,7 @@
             if ($conexio == false){
                 mysqli_connect_error();
             }else{
-                $dni_professor = $_POST['dni_professor'];
+                $dni_alumne = $_POST['dni_alumne'];
                 $oldfotografia = $_POST['oldfoto'];
                 if ($oldfotografia!=''){
                     if (unlink($oldfotografia)){
@@ -31,18 +31,18 @@
                     echo"<p>L'usuari no tenia fotografia.</p>";
                 }  
                 if (is_uploaded_file ($_FILES['fotografia']['tmp_name'])){
-                    $nombreDirectorio = "imgprofes/";
-                    $idUnico = $dni_professor;
+                    $nombreDirectorio = "imgalumnes/";
+                    $idUnico = $dni_alumne;
                     $nom=$_FILES['fotografia']['name'];
                     $cont=explode(".",$nom);
                     $extensio= $cont[1];
                     $fotografia = $idUnico.".".$extensio;
                     move_uploaded_file ($_FILES['fotografia']['tmp_name'],
                     $nombreDirectorio.$fotografia);
-                    $sql = "UPDATE professors SET fotografia='imgprofes/$fotografia' WHERE dni_professor LIKE '$dni_professor'";
+                    $sql = "UPDATE alumnes SET fotografia='imgalumnes/$fotografia' WHERE dni_alumne LIKE '$dni_alumne'";
                 }else{
                     print ("<p>No s'ha pogut pujar la fotografia nova</p>");
-                    $sql = "UPDATE professors SET fotografia='' WHERE dni_professor LIKE '$dni_professor'";
+                    $sql = "UPDATE alumnes SET fotografia='' WHERE dni_alumne LIKE '$dni_alumne'";
                 }
                 $consulta = mysqli_query ($conexio,$sql);  
                 if(!$consulta){ 
@@ -50,15 +50,15 @@
                     echo "Error! Query no vàlida.".$sql; 
                     echo "<br>";
                     echo "Redirigint...";
-                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_profes.php'>";
+                    echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_alumnes.php'>";
                 }else{
                    echo "Fotografia modificada correctament.";
-                   echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_profes.php'>";
+                   echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_alumnes.php'>";
                 }
             }
         }else{
-            if ($_REQUEST['dni_professor']) {
-                $dni_professor = $_REQUEST['dni_professor'];
+            if ($_REQUEST['dni_alumne']) {
+                $dni_alumne = $_REQUEST['dni_alumne'];
                 $oldfotografia = $_REQUEST['oldfoto'];
                 echo "<header>";
                         echo "<a href='index.php'><img src='img/logo-infobdn.svg' alt='logo infobdn' class='logo'/></a>";
@@ -70,14 +70,16 @@
                         echo "</nav>";
                         echo "</header>";
                 echo "<h2> Modificar la teva fotografia </h2>";
-                echo "<form action='editarfoto.php' ENCTYPE='multipart/form-data' class='formulari' method='post'>";
+                echo "<form action='editarfotoalum.php' ENCTYPE='multipart/form-data' class='formulari' method='post'>";
                 echo "<br>";
                 echo "<br>";
                 echo "<img with='100px' height='100px' src='$oldfotografia'>";
                 echo "<br>";
                 echo "<br>";
                 echo "<input readonly class='ocult' type='text' name='oldfoto' id='oldfoto' value='$oldfotografia'>";
-                echo "DNI: <input readonly class='ocult' type='text' name='dni_professor' id='dni_professor' value='$dni_professor'>";
+                echo "<br/>";
+                echo "<br/>";
+                echo "DNI: <input readonly class='ocult' type='text' name='dni_alumne' id='dni_alumne' value='$dni_alumne'>";
                 echo "<br>";
                 echo "<br>";
                 echo "<input required type='file' name='fotografia' id='fotografia' accept='image/*'>";
@@ -96,8 +98,8 @@
                 </div>          
                 <?php
             }else{
-                echo "No s'ha pogut obtenir el DNI del professor.";
-                echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_profes.php'>";
+                echo "No s'ha pogut obtenir el DNI de l'alumne.";
+                echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_alumnes.php'>";
             }
         }
     }else{

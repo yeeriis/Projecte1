@@ -24,8 +24,10 @@
                     <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:manteniment.php"/>
                     <?php
                 }else{
-                    print("Has d'esta validat per veure aquesta pàgina");
                 ?>
+                    <script>
+                        print("Has d'esta validat per veure aquesta pàgina");
+                    </script>
                     <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:index.php"/>
                 <?php
                 }

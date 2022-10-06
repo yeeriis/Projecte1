@@ -10,13 +10,13 @@ if (isset($_SESSION["user"])){
         // Recogemos los datos guardados en las variables de session en variables locales
         $id = $_GET["id"];
         // Creamos la sentencia sql
-        $sql = "UPDATE alumnes SET visible='0' WHERE dni_alumne='$id'";
+        $sql = "UPDATE alumnes SET visible='1' WHERE dni_alumne='$id'";
         // Ejecutamos la sentencia
         $consulta = mysqli_query($conexion,$sql);
         // Controlamos posibles errores
         if (!$consulta){
             echo mysqli_error($conexion)."<br>";
-            echo "Error querry no valida ".$sql;
+            echo "Error! Query no valida ".$sql;
         }else{
             echo "<META HTTP-EQUIV='REFRESH' CONTENT='0;URL=gestio_alumnes.php'>";
         }

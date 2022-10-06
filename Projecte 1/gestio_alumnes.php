@@ -32,7 +32,8 @@
 
         if(isset($_POST['search']) && $_POST['search'] != ""){
             $conexio2 = mysqli_connect('localhost','root','','infobdn');
-            $sentencia2 = "SELECT * FROM alumnes WHERE nom LIKE '".$_POST['search']."'";
+            $filtro = $_POST['search'];
+            $sentencia2 = "SELECT * FROM alumnes WHERE nom LIKE '%$filtro%'";
             if($resultat2 = mysqli_query($conexio2, $sentencia2)){
                 while($fila = $resultat2 -> fetch_assoc()){
                     $llista[] = $fila;
@@ -51,7 +52,7 @@
                         <td>Fotografia</td>
                         <td>Correu</td>
                         <td>Contrasenya</td>
-                        <td>Visibilitat</td>
+                        <td colspan="2">Visibilitat</td>
                     </tr>
                 <?php
                 foreach($valor as $clave1 => $valor1){
@@ -86,8 +87,8 @@
                         <td>Edat</td>
                         <td>Fotografia</td>
                         <td>Correu</td>
-                        <td>Contrasenya</td>
                         <td>Editar</td>
+                        <td>Editar Foto</td>
                         <td colspan="2">Visibilitat<td>
                     </tr>
                 <?php 
@@ -100,8 +101,8 @@
                         echo "<td>".$alumne['edat']."</td>";
                         echo "<td><img src=".$alumne['fotografia']." class='photo' height='50px'></td>";
                         echo "<td>".$alumne['correu']."</td>";
-                        echo "<td>".$alumne['contrasenya']."</td>";
                         echo "<td><a href='editaralumne.php?dni_alumne=".$alumne['dni_alumne']."'><img src='img/lapiz.png' height='40px' width='40px'</a></td>";
+                        echo "<td><a href='editarfotoalum.php?dni_alumne=".$alumne['dni_alumne']."&oldfoto=".$alumne['fotografia']."'><img src='img/editfoto.png' height='40px' width='40px'</a></td>";
                         if($alumne['visible']==="1"){
                             echo "<td>Actiu</td>";
                             echo "<td><a href='delalumne.php?id=".$alumne['dni_alumne']."'><img src='img/pngwing.png' height='40px' width='40px'></a></td>";
@@ -109,6 +110,7 @@
                             echo "<td>Inactiu</td>";
                             echo "<td><a href='actalumne.php?id=".$alumne['dni_alumne']."'><img src='img/pngnowing.png' height='40px' width='40px'></a></td>";
                         }
+                        
                     echo "</tr>";
                 }
             }

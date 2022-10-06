@@ -19,12 +19,12 @@
         $passwdmd5 = md5($PasUsuari);
         if($Nomusuari == "admin" && $PasUsuari == "admin"){
             $_SESSION['user'] =  $Nomusuari;
+            print("Redirigint...");
             ?>
-            <META HTTP-EQUIV="REFRESH" CONTENT="1;URL=http:manteniment.php"/>
-            <p>Redirigint...</p>
+            <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:manteniment.php"/>
             <?php
         }else{
-            print("Has d'esta validat per veure aquesta pàgina");
+            print("Has d'estar validat per veure aquesta pàgina");
         ?>
             <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:index.php"/>
         <?php
@@ -43,10 +43,10 @@
     <br>
     <form name="formulari" method="POST" action="admin.php" class="formulari" >
         <h3>Manteniment Admin</h3>
-        <input type="text"  name="usuari" maxlength="15" id = "usuari" placeholder="User" required/>
+        <input type="text"  name="usuari" maxlength="15" id = "usuari" placeholder="usuari" required class="invisible"/>
         <br/>
         <br/>
-        <input type="password"  maxlength="15" id = "contrasenya" name="contrasenya" placeholder="Contrasenya" required />
+        <input type="password"  maxlength="15" id = "contrasenya" name="contrasenya" placeholder="contrasenya" required class="invisible" />
         <br/>
         <br/>
         <input type="submit" name="subir" value="Enviar"/>

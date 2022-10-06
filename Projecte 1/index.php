@@ -23,7 +23,6 @@
 </header>
 <body>
     <p>Pàgina principal (en obres) :-)</p>
-    <footer>
-    </footer>
+    <footer></footer>
 </body>
 </html>

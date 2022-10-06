@@ -31,7 +31,8 @@
 
         if(isset($_POST['search']) && $_POST['search'] != ""){
             $conexio2 = mysqli_connect('localhost','root','','infobdn');
-            $sentencia2 = "SELECT * FROM cursos WHERE nom LIKE '".$_POST['search']."'";
+            $filtro = $_POST['search'];
+            $sentencia2 = "SELECT * FROM cursos WHERE nom LIKE '%$filtro%'";
             if($resultat2 = mysqli_query($conexio2, $sentencia2)){
                 while($fila = $resultat2 -> fetch_assoc()){
                     $llista[] = $fila;
