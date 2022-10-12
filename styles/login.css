@@ -1,0 +1,194 @@
+* {
+    font-family:'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+body{
+    background-image: url("https://i0.wp.com/medioambienteynaturaleza.com/wp-content/uploads/2015/06/Fondos-de-pantalla-de-paisajes-naturales23.jpg?resize=1110%2C624&ssl=1");
+    background-size: 100%;
+    position: relative;
+}
+#nomprof{
+    color: black;
+    width: 300px;
+    float: right;
+}
+h2{
+    text-align: center;
+}
+h3{
+    background-color: #9EBC9F;
+    height: 50px;
+    font-size: 30px;
+}
+.formulari{
+    border: 1px solid white;
+    width: 40%;
+    text-align: center;
+    margin: auto;
+    backdrop-filter: blur(5px);
+    /* border-radius: 25px; */
+}
+.taula{
+    border: 1px solid white;
+    width: 50%;
+    text-align: center;
+    margin: auto;
+    backdrop-filter: blur(5px);
+}
+
+header{
+    align-items: center;
+    background-color: #9EBC9F;
+    height: 80px;
+    display: flex;
+    width: 100%;
+}
+nav{
+    text-decoration: none;
+    width: 100%;
+    font-weight: bold;
+}
+.gestio{
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.gestion{
+    padding-left: 2%;
+    padding-right: 2%;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+.menu{
+    padding-left: 2%;
+    padding-right: 2%;
+    align-items: center;
+    text-decoration: none;
+}
+/* footer{
+    background-color: #9EBC9F;
+    height: 50px;
+    width: 99%;
+    position: absolute;
+} */
+.logo{
+    height: 100px;
+    width: 100px;
+}
+.buscador{
+    border: 1px solid white;
+    border-radius: 50px;
+    width: 40%;
+    text-align: center;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin: auto;
+    background-color: #D3B88C;
+}
+#search{
+    background-color: #D3B88C;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid white;
+    text-align: center;
+}
+.alta{
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+.registra{
+    
+    text-decoration: none;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+}
+a:hover{
+    color: white;
+    background-color: #D3B88C;
+    border-radius: 15px;
+}
+a:link{
+    color: white;
+    text-decoration: none;
+}
+a:visited{
+    color: white;
+    
+}
+.photo{
+    height: 50px;
+    width: 100px;
+}
+.titols{
+    background-color: #D3B88C;
+    font-weight: bold;
+    color: white;
+}
+.invisible{
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 2px solid #9EBC9F;
+    text-align: center;
+}
+.parent {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 22px;
+    grid-row-gap: 0px;
+    }
+    
+.div1 { 
+    grid-area: 1 / 1 / 2 / 2;
+    backdrop-filter: blur(5px);
+    width: 50%;
+    border: 1px solid white;
+    margin-left: 50%;
+}
+.div2 { 
+    grid-area: 1 / 2 / 2 / 3;
+    backdrop-filter: blur(5px);
+    width: 50%;
+    border: 1px solid white;
+}
+.div1 > div > p{
+    padding-left: 8%;
+}
+.div2 > div > p{
+    padding-left: 8%;
+}
+div.div2 > div.image >img {
+    height: 100px;
+    width: 100px;
+    padding-left: 8%;
+}
+.padre {
+    display: grid;
+    grid-template-columns: 4fr 2fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 22px;
+    grid-row-gap: 0px;
+    }
+    
+.div3 { 
+    grid-area: 1 / 1 / 2 / 2;
+    width: 90%;
+    margin-left: 50px;
+    color: white;
+    backdrop-filter: blur(5px);
+
+}
+.div4 { 
+    grid-area: 1 / 2 / 2 / 3;
+    align-items: center;
+    text-align: center;
+}
+div.div4 > div {
+    width: 100%;
+    align-items: center;
+}
