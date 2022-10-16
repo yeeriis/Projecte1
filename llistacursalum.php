@@ -15,11 +15,8 @@
     <header>
     <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
-            <a href="admin.php" class="menu">Manteniment</a>
             <a href="cursosalum.php" class="menu">Cursos Disponibles</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
+            <a href="perfilalumne.php" class="menu">El meu perfil</a>
         </nav>
         <p  id="nomprof">Benvingut/da, <?php echo $_SESSION['nom']; ?></p>
     </header>
@@ -29,50 +26,50 @@
     $dni = $_SESSION['dni_alumne'];
 
     if(isset($_SESSION['dni_alumne'])){
-    if($_POST){
-        echo "<form action='llistacursalum.php' class='buscador' method='POST' name='search'>";
-        echo "Necessites buscar algun curs? <input type='text' id='search' name='search' placeholder='Buscar'/>";
-        echo "<button type='submit'>Buscar</button>";
-        echo "</form>";
-            $conexio2 = mysqli_connect('localhost','root','','infobdn');
-            $filtro = $_POST['search'];
-            $sentencia2 = "SELECT * FROM cursos WHERE nom LIKE '%$filtro%' and data_inici>'$data_actual' and visible = 1 and codi_curs IN (SELECT codi_curs FROM matricula WHERE dni_alumne = $dni)";
-            $consulta = mysqli_query($conexio2,$sentencia2);
-            $linies = mysqli_num_rows($consulta);
-                echo "<h2>Els Meus Cursos</h2>";
-                echo "<table border='1' class='formulari'>";
-                echo "<tr>";
-                ?>
-                    <tr class="titols">
-                        <td>Nom</td>
-                        <td>Descripció</td>
-                        <td>Hores</td>
-                        <td>Data Inici</td>
-                        <td>Data Final</td>
-                        <td>Desmatricular-me</td>
-                    </tr>
-                <?php
-                    echo "</tr>";
-                for($i = 0; $i < $linies; $i++){
-                    $curs = mysqli_fetch_assoc($consulta);
+        if($_POST){
+            echo "<form action='llistacursalum.php' class='buscador' method='POST' name='search'>";
+            echo "Necessites buscar algun curs? <input type='text' id='search' name='search' placeholder='Buscar'/>";
+            echo "<button type='submit'>Buscar</button>";
+            echo "</form>";
+                $conexio2 = mysqli_connect('localhost','root','','infobdn');
+                $filtro = $_POST['search'];
+                $sentencia2 = "SELECT * FROM cursos WHERE nom LIKE '%$filtro%' and data_inici>'$data_actual' and visible = 1 and codi_curs IN (SELECT codi_curs FROM matricula WHERE dni_alumne = $dni)";
+                $consulta = mysqli_query($conexio2,$sentencia2);
+                $linies = mysqli_num_rows($consulta);
+                    echo "<h2>Els Meus Cursos</h2>";
+                    echo "<table border='1' class='formulari'>";
                     echo "<tr>";
-                    echo "<td>".$curs['nom']."</td>";
-                    echo "<td>".$curs['descripcio']."</td>";
-                    echo "<td>".$curs['hores']."</td>";
-                    echo "<td>".$curs['data_inici']."</td>";
-                    echo "<td>".$curs['data_final']."</td>";
-                    echo "<td><a href='desmatriculacio.php'><input type='button' value='Desmatricular-me'></a></td>";
-                    echo "</tr>";
-                }
-            echo "</table>";
-            ?>    
-            </table>
-            <br></br>
-            <div class="alta">
-                <a href="sortir.php">Sortir de la sessió</a>
-            </div>
-            <footer></footer>
-        <?php
+                    ?>
+                        <tr class="titols">
+                            <td>Nom</td>
+                            <td>Descripció</td>
+                            <td>Hores</td>
+                            <td>Data Inici</td>
+                            <td>Data Final</td>
+                            <td>Desmatricular-me</td>
+                        </tr>
+                    <?php
+                        echo "</tr>";
+                    for($i = 0; $i < $linies; $i++){
+                        $curs = mysqli_fetch_assoc($consulta);
+                        echo "<tr style='color: white';>";
+                        echo "<td>".$curs['nom']."</td>";
+                        echo "<td>".$curs['descripcio']."</td>";
+                        echo "<td>".$curs['hores']."</td>";
+                        echo "<td>".$curs['data_inici']."</td>";
+                        echo "<td>".$curs['data_final']."</td>";
+                        echo "<td><a href='desmatriculacio.php'><input type='button' value='Desmatricular-me'></a></td>";
+                        echo "</tr>";
+                    }
+                echo "</table>";
+                ?>    
+                </table>
+                <br></br>
+                <div class="alta">
+                    <a href="sortir.php">Sortir de la sessió</a>
+                </div>
+                <footer></footer>
+            <?php
         }else{
             echo "<form action='llistacursalum.php' class='buscador' method='POST' name='search'>";
             echo "Necessites buscar algun curs? <input type='text' id='search' name='search' placeholder='Buscar'/>";
@@ -103,7 +100,7 @@
                         $curs = mysqli_fetch_assoc($resultat);
                         $codi_curs = $curs['codi_curs'];
 
-                        echo "<tr>";
+                        echo "<tr style='color: white';>";
                             echo "<td>".$curs['nom']."</td>";
                             echo "<td>".$curs['descripcio']."</td>";
                             echo "<td>".$curs['hores']."</td>";
@@ -112,21 +109,23 @@
                             echo "<td><a href='desmatriculacio.php?dni=$dni&curs=$codi_curs'><input type='button' value='Desmatricular-me'></a></td>";
                         echo "</tr>";
                     }
-                    ?>    
-                    </table>
+                ?>    
+                </table>
+                <br></br>
+                <div class="alta">
+                    <a href="cursosalum.php">Tornar enrere</a>
                     <br></br>
-                    <div class="alta">
-                        <a href="sortir.php">Sortir de la sessió</a>
-                    </div>
-                    <footer></footer>
-                <?php
-                }
+                    <a href="sortir.php">Sortir de la sessió</a>
+                </div>
+                <footer></footer>
+            <?php
             }
-        }else{
-            print("Has d'estar validat per veure aquesta pagina.");
-            echo "Redirigint...";
-            echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=index.php'>";
         }
-        ?>
+    }else{
+        echo "<p style='color:white;'>Has d'estar validat per veure aquesta pagina.</p>";
+        echo "<p style='color:white;'>Redirigint...</p>";
+        echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=index.php'>";
+    }
+    ?>
 </body>
 </html>

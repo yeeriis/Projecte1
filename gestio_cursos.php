@@ -15,10 +15,6 @@
     <header>
     <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
-            <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
     </header>
     <br>
@@ -53,7 +49,7 @@
             <?php     
             foreach($llista as $clave => $valor){
                 foreach($valor as $clave1 => $valor1){
-                    echo "<td>".$valor1."</td>";
+                    echo "<td style='color:white;'>".$valor1."</td>";
                 }
                 echo "</tr>";
             }
@@ -100,7 +96,7 @@
                 <?php 
                 for($i = 0; $i < $linies; $i++){
                     $curs = mysqli_fetch_assoc($resultat);
-                    echo "<tr>";
+                    echo "<tr style='color:white;'>";
                         echo "<td>".$curs['codi_curs']."</td>";
                         echo "<td>".$curs['nom']."</td>";
                         echo "<td>".$curs['descripcio']."</td>";

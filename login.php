@@ -69,9 +69,7 @@
         <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
             <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
             <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
     </header>
     <h2>Benvingut/da al portal de cursos d'informàtica!</h2>
@@ -86,7 +84,7 @@
         Alumne: <input type="radio"  maxlength="15" id="alumne" name="select" value="alum" required/>
         <br/>
         <br/>
-        <input type="submit" name="Enviar" value="Enviar">
+        <input type="submit" clasS='button label' name="Enviar" value="Enviar">
         <br>
         <p>No estàs registrat? Clica <a href="alta.php">aquí</a></p>
     </form>

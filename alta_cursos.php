@@ -15,39 +15,18 @@
     <header>
         <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php"class="menu">Registra't</a>
-            <a href="login.php"class="menu">Inicia Sessió</a>
-            <a href="admin.php"class="menu">Manteniment</a>
-            <a href="quisom.html"class="menu">Qui som?</a>
         </nav>
     </header>
     <br>
 <?php
+    include "funcions.php";
     if (isset($_SESSION["user"])){
        $conexio = mysqli_connect("localhost","root","","infobdn");
        if ($_POST){
-           if ($conexio == false){
-               mysqli_connect_error();
-           }else{
-                $codi_curs = $_POST['codi_curs'];
-                $nom = $_POST['nom'];
-                $descripcio = $_POST['descripcio'];
-                $hores = $_POST['hores'];
-                $data_inici = $_POST['data_inici'];
-                $data_final = $_POST['data_final'];
-                $dni_professor = $_POST['dni_professor'];
-
-                $sql = "INSERT INTO cursos VALUES ('$codi_curs', '$nom', '$descripcio', '$hores', '$data_inici', '$data_final', '$dni_professor', 'si')";
-                $consulta = mysqli_query($conexio,$sql);
-
-                if(!$consulta){
-                   echo mysqli_error($conexio)."<br>"; 
-                   echo "Error! Query no vàlida ".$sql;    
-                }else{
-                   echo "<h2>Curs creat correctament</h2>";
-                   echo "<p>Redirigint...</p>";
-                   echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=gestio_cursos.php'>";
-                }  
+            if ($conexio == false){
+                mysqli_connect_error();
+            }else{
+                altaCurs();
             }    
         }else{
             $conexio = mysqli_connect("localhost","root","","infobdn");
@@ -66,17 +45,17 @@
                     ?>
                     <form action="alta_cursos.php" method="POST" class="formulari">
                         <h3>Creació de Cursos</h3>
-                        <input type="text" name="codi_curs" placeholder="Codi Curs" required>
+                        <input type="text" name="codi_curs" class='invisible' placeholder="Codi Curs" required>
                         <br></br>
-                        <input type="text" name="nom" placeholder="Nom" required>
+                        <input type="text" name="nom" class='invisible' placeholder="Nom" required>
                         <br></br>
-                        <input type="text" name="descripcio" placeholder="Descripció" required>
+                        <input type="text" name="descripcio" class='invisible' placeholder="Descripció" required>
                         <br></br>
-                        <input type="text" name="hores" placeholder="Hores" required>
+                        <input type="text" name="hores" class='invisible' placeholder="Hores" required>
                         <br></br>
-                        <input type="date" name="data_inici" placeholder="Data Inici" required>
+                        <input type="date" name="data_inici" class='invisible' placeholder="Data Inici" required>
                         <br></br>
-                        <input type="date" name="data_final" placeholder="Data Final" required>
+                        <input type="date" name="data_final" class='invisible' placeholder="Data Final" required>
                         <br></br>
                         Professor que imparteix: <select name="dni_professor" id="dni_professor">
                     <?php
@@ -89,7 +68,7 @@
                         }
                     ?>
                         </select></p>
-                        <p><button type='submit'>Crear</button></p>  
+                        <p><button type='submit' class='button label'>Crear</button></p>  
                     </form>
                     <div class="alta">
                         <br></br>
@@ -108,6 +87,5 @@
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=index.php'>";
     }
     ?>
-    <footer></footer>
 </body>
 </html>

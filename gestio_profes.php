@@ -15,10 +15,6 @@
     <header>
         <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
-            <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
     </header>
     <br/>
@@ -40,7 +36,7 @@
             }   
             echo "<h2>Gestió de Professors</h2>";
                 echo "<table class='taula' border='1'>";
-                echo "<tr>";
+                echo "<tr style='color:white;'>";
                 ?>
                     <tr class="titols">
                         <td>DNI</td>
@@ -51,7 +47,7 @@
                 <?php              
             foreach($llista as $clave => $valor){
                 foreach($valor as $clave1 => $valor1){
-                    echo "<td>".$valor1."</td>";
+                    echo "<td style='color:white;'>".$valor1."</td>";
                 }
                 echo "</tr>";
             }
@@ -86,7 +82,7 @@
                 <?php 
                 for($i = 0; $i < $linies; $i++){
                     $profe = mysqli_fetch_assoc($resultat);
-                    echo "<tr>";
+                    echo "<tr style='color:white;'>";
                         echo "<td>".$profe['dni_professor']."</td>";
                         echo "<td>".$profe['nom']."</td>";
                         echo "<td>".$profe['cognoms']."</td>";

@@ -19,7 +19,6 @@
             <a href="login.php" class="menu">Inicia Sessió</a>
             <a href="admin.php" class="menu">Manteniment</a>
             <a href="llistacursalum.php" class="menu">Els meus cursos</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
     </header>
     <br>

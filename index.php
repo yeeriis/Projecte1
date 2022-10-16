@@ -1,6 +1,5 @@
 <?php
     session_start();
-    
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +17,6 @@
             <a href="alta.php" class="menu">Registra't</a>
             <a href="login.php" class="menu">Inicia Sessió</a>
             <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
     </nav>
 </header>
 <body>
@@ -48,6 +46,5 @@
             <div><img src='img/php.png' height='90px' width='180px'></div>
         </div>
     </div>
-    <footer></footer>
 </body>
 </html>

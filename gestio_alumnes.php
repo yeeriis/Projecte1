@@ -15,10 +15,6 @@
     <header>
         <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
-            <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
     </header>
     <br>
@@ -51,7 +47,7 @@
             <?php
             foreach($llista as $clave => $valor){
                 foreach($valor as $clave1 => $valor1){
-                    echo "<td>".$valor1."</td>";
+                    echo "<td style='color:white;'>".$valor1."</td>";
                 }
                 echo "</tr>";
             }
@@ -87,12 +83,12 @@
                     <?php 
                     for($i = 0; $i < $linies; $i++){
                         $alumne = mysqli_fetch_assoc($resultat);
-                        echo "<tr>";
+                        echo "<tr style='color:white;'>";
                             echo "<td>".$alumne['dni_alumne']."</td>";
                             echo "<td>".$alumne['nom']."</td>";
                             echo "<td>".$alumne['cognoms']."</td>";
                             echo "<td>".$alumne['edat']."</td>";
-                            echo "<td><img src=".$alumne['fotografia']." class='photo' height='50px'></td>";
+                            echo "<td><img src=".$alumne['fotografia']." class='photo'></td>";
                             echo "<td>".$alumne['correu']."</td>";
                             echo "<td><a href='editaralumne.php?dni_alumne=".$alumne['dni_alumne']."'><img src='img/lapiz.png' height='40px' width='40px'</a></td>";
                             echo "<td><a href='editarfotoalum.php?dni_alumne=".$alumne['dni_alumne']."&oldfoto=".$alumne['fotografia']."'><img src='img/editfoto.png' height='40px' width='40px'</a></td>";

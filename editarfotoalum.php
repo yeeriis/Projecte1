@@ -63,10 +63,7 @@
                 echo "<header>";
                         echo "<a href='index.php'><img src='img/logo-infobdn.svg' alt='logo infobdn' class='logo'/></a>";
                         echo "<nav class='nav'>";
-                            echo "<a href='alta.php'class='menu'>Registra't</a>";
-                            echo "<a href='login.php'class='menu'>Inicia Sessió</a>";
                             echo "<a href='admin.php'class='menu'>Manteniment</a>";
-                            echo "<a href='quisom.html'class='menu'>Qui som?</a>";
                         echo "</nav>";
                         echo "</header>";
                 echo "<h2> Modificar la teva fotografia </h2>";
@@ -76,10 +73,10 @@
                 echo "<img with='100px' height='100px' src='$oldfotografia'>";
                 echo "<br>";
                 echo "<br>";
-                echo "<input readonly class='ocult' type='text' name='oldfoto' id='oldfoto' value='$oldfotografia'>";
+                echo "<input readonly class='ocult' type='text' class='invisible' name='oldfoto' id='oldfoto' value='$oldfotografia'>";
                 echo "<br/>";
                 echo "<br/>";
-                echo "DNI: <input readonly class='ocult' type='text' name='dni_alumne' id='dni_alumne' value='$dni_alumne'>";
+                echo "DNI: <input readonly class='ocult' type='text' class='invisible' name='dni_alumne' id='dni_alumne' value='$dni_alumne'>";
                 echo "<br>";
                 echo "<br>";
                 echo "<input required type='file' name='fotografia' id='fotografia' accept='image/*'>";

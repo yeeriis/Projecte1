@@ -58,32 +58,34 @@
         <header>
             <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
             <nav class="nav">
-                <a href="alta.php"class="menu">Registra't</a>
                 <a href="login.php"class="menu">Inicia Sessió</a>
                 <a href="admin.php"class="menu">Manteniment</a>
-                <a href="quisom.html"class="menu">Qui som?</a>
             </nav>
         </header>
         <h2>Creació del compte</h2>
         <form action="alta.php" method="POST" class="formulari" enctype='multipart/form-data'>
             <br>
-            <input type="text" required="required" placeholder="DNI" name="dni_alumne"/>
+            <input type="text" required class='invisible' placeholder="DNI" name="dni_alumne"/>
             <br></br>
-            <input type="text" required="required" placeholder="Nom" name="nom">
+            <input type="text" required class='invisible' placeholder="Nom" name="nom">
             <br></br>
-            <input type="text" required="required" placeholder="Cognoms" name="cognoms">
+            <input type="text" required class='invisible' placeholder="Cognoms" name="cognoms">
             <br></br>
-            <input type="text" required="required" placeholder="Edat" name="edat">
+            <input type="text" required class='invisible' placeholder="Edat" name="edat">
             <br></br>
-            <input type="file" name="foto" id="foto" required>
+            <input type="file" class='selectfile' name="foto" id="foto" required><label for="foto" class='invisible label'> Selecciona fotografia</label>
             <br></br>
-            <input type="text" required="required" placeholder="Correu" name="correu">
+            <input type="text" required class='invisible' placeholder="Correu" name="correu">
             <br></br>
-            <input type="password" required="required" placeholder="Contrasenya" name="contrasenya">
+            <input type="password" required class='invisible' placeholder="Contrasenya" name="contrasenya">
             <br></br>
-            <input type="submit" name="enviar" value="Aceptar"/>
+            <input type="submit" class='button label' name="enviar" value="Aceptar"/>
             <br></br>
         </form>
+        <br><br>
+        <div class="alta">
+            <a href="index.php">Tornar enrere</a>
+        </div>
         <footer></footer>
         <?php  
         }

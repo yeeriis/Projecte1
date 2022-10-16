@@ -1,7 +1,6 @@
 <?php
     session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/login.css" type="text/css">
-    <title>Document</title>
+    <title>Manteniment</title>
 </head>
 <body>
     <?php
@@ -36,22 +35,17 @@
                 <header>
                     <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
                     <nav class="nav">
-                        <a href="alta.php" class="menu">Registra't</a>
-                        <a href="login.php" class="menu">Inicia Sessió</a>
-                        <a href="admin.php" class="menu">Manteniment</a>
-                        <a href="quisom.html" class="menu">Qui som?</a>
                     </nav>
                 </header>
                 <br>
                 <br>
                 <nav class="gestio">
-                        <a href="alta_profes.php" class="gestion">Alta professors</a>
-                        <a href="gestio_profes.php" class="gestion">Gestió de professors</a>
-                        <a href="alta_cursos.php" class="gestion">Creació de cursos</a>
-                        <a href="gestio_cursos.php" class="gestion">Gestió de cursos</a>
-                        <a href="gestio_alumnes.php" class="gestion">Gestió d'alumnes</a>
+                    <a href="alta_profes.php" class="gestion">Alta professors</a>
+                    <a href="gestio_profes.php" class="gestion">Gestió de professors</a>
+                    <a href="alta_cursos.php" class="gestion">Creació de cursos</a>
+                    <a href="gestio_cursos.php" class="gestion">Gestió de cursos</a>
+                    <a href="gestio_alumnes.php" class="gestion">Gestió d'alumnes</a>
                 </nav>
-                <footer></footer>
         <?php
         }
     }else{

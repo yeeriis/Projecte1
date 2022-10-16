@@ -14,17 +14,15 @@
 <header>
     <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
-            <a href="alta.php" class="menu">Registra't</a>
-            <a href="login.php" class="menu">Inicia Sessió</a>
             <a href="admin.php" class="menu">Manteniment</a>
-            <a href="quisom.html" class="menu">Qui som?</a>
         </nav>
+        <p  id="nomprof">Benvingut/da, <?php echo $_SESSION['nom']; ?></p>
     </header>
     <br>
     <?php
+    $dni = $_SESSION['dni_professor'];
 
-
-    if(isset($_SESSION['nom'])){
+    if(isset($_SESSION['dni_professor'])){
         $data_actual = date ('Y-m-d');
         if($_POST){
             echo "<form action='alumnescurs.php' class='buscador' method='POST' name='search'>";
@@ -40,23 +38,23 @@
                     echo "<table border='1' class='formulari'>";
                     echo "<tr>";
                     ?>
-                        <tr class="titols">
-                            <td>Nom</td>
-                            <td>Cognoms</td>
-                            <td>Correu</td>
-                            <td>Nota</td>
-                            <td>Editar nota</td>
-                        </tr>
+                    <tr class="titols">
+                        <td>Nom</td>
+                        <td>Cognoms</td>
+                        <td>Correu</td>
+                        <td>Nota</td>
+                        <td>Editar nota</td>
+                    </tr>
                     <?php
                         echo "</tr>";
                     for($i = 0; $i < $linies; $i++){
                         $alumne = mysqli_fetch_assoc($consulta);
-                        echo "<tr>";
-                        echo "<td>".$alumne['nom']."</td>";
-                        echo "<td>".$alumne['cognoms']."</td>";
-                        echo "<td>".$alumne['correu']."</td>";
-                        echo "<td>".$alumne['nota']."</td>";
-                        echo "<td><a href='editarnota.php?dni_alumne=".$alumne['dni_alumne']."&codi_curs=".$alumne['codi_curs']."&nota=".$alumne['nota']."'><input type='button' value='Editar Nota'></a></td>";
+                        echo "<tr style='color: white';>";
+                            echo "<td>".$alumne['nom']."</td>";
+                            echo "<td>".$alumne['cognoms']."</td>";
+                            echo "<td>".$alumne['correu']."</td>";
+                            echo "<td>".$alumne['nota']."</td>";
+                            echo "<td><a href='editarnota.php?dni_alumne=".$alumne['dni_alumne']."&codi_curs=".$alumne['curs']."&nota=".$alumne['nota']."'><input type='button' value='Editar Nota'></a></td>";
                         echo "</tr>";
                     }
                 echo "</table>";
@@ -66,7 +64,6 @@
                 <div class="alta">
                     <a href="sortir.php">Sortir de la sessió</a>
                 </div>
-                <footer></footer>
             <?php
             }else{
                 echo "<form action='alumnescurs.php' class='buscador' method='POST' name='search'>";
@@ -95,33 +92,32 @@
                         <?php 
                         for($i = 0; $i < $linies; $i++){
                             $alumne = mysqli_fetch_assoc($resultat);
-                            echo "<tr>";
+                            echo "<tr style='color: white';>";
                                 echo "<td>".$alumne['nom']."</td>";
                                 echo "<td>".$alumne['cognoms']."</td>";
                                 echo "<td>".$alumne['correu']."</td>";
                                 echo "<td>".$alumne['nota']."</td>";
-                                echo "<td><a href='editarnota.php?dni_alumne=".$alumne['dni_alumne']."&codi_curs=".$alumne['codi_curs']."'><input type='button' value='Editar Nota'></a></td>";
-
+                                echo "<td><a href='editarnota.php?dni_alumne=".$alumne['dni_alumne']."&curs=".$alumne['codi_curs']."'><input type='button' value='Editar Nota'></a></td>";
                             echo "</tr>";
-                            }
-                            ?>    
-                            </table>
+                        }
+                        ?>    
+                        </table>
+                        <br></br>
+                        <div class="alta">
+                            <a href="cursosprof.php">Tornar enrere</a>
                             <br></br>
-                            <div class="alta">
-                                <a href="sortir.php">Sortir de la sessió</a>
-                            </div>
-                            <footer></footer>
-                            <?php
-                            }
-                    }else{
-                        echo "No s'ha pogut obtenir el codi del curs.";
-
+                            <a href="sortir.php">Sortir de la sessió</a>
+                        </div>
+                        <?php
                     }
+                }else{
+                    echo "No s'ha pogut obtenir el codi del curs.";
+                }
             }
     }else{
-        echo "Has d'esta validat per veure aquesta pàgina";
+        echo "<p style='color:white;'>Has d'estar validat per veure aquesta pagina.</p>";
         echo "<br>";
-        echo "Redirigint...";
+        echo "<p style='color:white;'>Redirigint...</p>";
         echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:index.php'/>";
     }
     ?>
