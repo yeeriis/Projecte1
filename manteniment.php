@@ -40,13 +40,18 @@
                 <br>
                 <br>
                 <nav class="gestio">
-                    <a href="alta_profes.php" class="gestion">Alta professors</a>
-                    <a href="gestio_profes.php" class="gestion">Gestió de professors</a>
-                    <a href="alta_cursos.php" class="gestion">Creació de cursos</a>
-                    <a href="gestio_cursos.php" class="gestion">Gestió de cursos</a>
-                    <a href="gestio_alumnes.php" class="gestion">Gestió d'alumnes</a>
+                    <a href="alta_profes.php" class="gestion" style='border: 1px solid white; border-radius: 50px;'>Alta professors</a>
+                    <a href="gestio_profes.php" class="gestion" style='border: 1px solid white; border-radius: 50px;'>Gestió de professors</a>
+                    <a href="alta_cursos.php" class="gestion" style='border: 1px solid white; border-radius: 50px;'>Creació de cursos</a>
+                    <a href="gestio_cursos.php" class="gestion" style='border: 1px solid white; border-radius: 50px;'>Gestió de cursos</a>
+                    <a href="gestio_alumnes.php" class="gestion" style='border: 1px solid white; border-radius: 50px;'>Gestió d'alumnes</a>
                 </nav>
+        <br><br>
+        <div class="alta">
+            <a href="sortir.php">Sortir de la sessió</a>
+        </div>
         <?php
+        
         }
     }else{
         echo "<p>Has d'estar valiat per veure aquesta pàgina</p>";

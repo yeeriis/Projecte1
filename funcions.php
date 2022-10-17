@@ -2,7 +2,7 @@
     function menuProfe(){
         ?>
         <header>
-    <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
+        <a href="index.php"><img src="img/logo-infobdn.svg" alt="logo infobdn" class="logo"/></a>
         <nav class="nav">
             <a href="admin.php" class="menu">Manteniment</a>
         </nav>
@@ -20,12 +20,12 @@
             $passwdmd5 = md5($PasUsuari);
             if($Nomusuari == "admin" && $PasUsuari == "admin"){
                 $_SESSION['user'] =  $Nomusuari;
-                print("Redirigint...");
+                echo "<p style='color:white;'>Redirigint...</p>";
                 ?>
                 <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:manteniment.php"/>
                 <?php
             }else{
-                print("Has d'estar validat per veure aquesta pàgina");
+                echo "<p style='color:white;'>Has d'estar validat per veure aquesta pàgina</p>";
             ?>
                 <META HTTP-EQUIV="REFRESH" CONTENT="2;URL=http:index.php"/>
             <?php
@@ -156,6 +156,9 @@
 
 
     function altaCurs(){
+        $conexio = mysqli_connect("localhost","root","","infobdn");
+
+
         $codi_curs = $_POST['codi_curs'];
         $nom = $_POST['nom'];
         $descripcio = $_POST['descripcio'];
@@ -179,6 +182,9 @@
     }
 
     function altaProfe(){
+
+        $conexio = mysqli_connect("localhost","root","","infobdn");
+
         $dni_professor = $_POST['dni_professor'];
         $nom = $_POST['nom'];
         $cognoms = $_POST['cognoms'];

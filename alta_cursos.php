@@ -57,7 +57,7 @@
                         <br></br>
                         <input type="date" name="data_final" class='invisible' placeholder="Data Final" required>
                         <br></br>
-                        Professor que imparteix: <select name="dni_professor" id="dni_professor">
+                        Professor que imparteix: <select name="dni_professor" id="dni_professor" style='background: transparent;'>
                     <?php
                         $linies = mysqli_num_rows($consulta);
                         for($i = 0;$i < $linies; $i++){

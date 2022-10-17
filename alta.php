@@ -34,23 +34,23 @@
                 $extension = $contingutnom[1]; 
                 $nombreFichero = $nombreDirectorio.$idUnico.".".$extension;
                 move_uploaded_file ($_FILES['foto']['tmp_name'],$nombreFichero);
+                $visible = '1';
 
                 $sql = "INSERT INTO alumnes VALUES ('$dni_alumne', '$nom', '$cognoms', '$edat', '$nombreFichero', '$correu', '$contrasenya', '$visible')";
                 $consulta = mysqli_query($conexio,$sql);
                 if(!$consulta){
                     echo mysqli_error($conexio)."<br>"; 
-                    echo "Error! Query no vàlida ".$sql;    
+                    echo "<p style='color:white;'>Error! Query no vàlida</p> ".$sql;    
                 }else{
-                    echo "Usuari creat correctament!";
+                    echo "<p style='color:white;'>Usuari creat correctament!</p>";
                     echo "<br>";
-                    echo "Redirigint...";
+                    echo "<p style='color:white;'>Redirigint...</p>";
                     echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=login.php'>";
                 }  
             }
             else{
-                print ("No s'ha pogut pujar l'arxiu.\n");
+                echo "<p style='color:white;'>No s'ha pogut pujar l'arxiu.</p>\n";
                 echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=login.php'>";
-
             }
         }   
         }else{ 

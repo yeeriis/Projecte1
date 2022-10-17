@@ -37,6 +37,7 @@
                     $_SESSION['rol'] = $tipus;
                     $_SESSION['nom'] = $usuario['nom'];
                     $_SESSION['dni_professor'] = $usuario['dni_professor'];
+                    echo "<p style='color:white;'>Redirigint...</p>";
                     echo "<META HTTP-EQUIV='REFRESH' CONTENT='2;URL=http:cursosprof.php'/>";
                 }
                 else{

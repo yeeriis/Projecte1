@@ -48,12 +48,13 @@
         <br></br>
         <input type="text" name="titol_academic" class='invisible' placeholder="Títol Acadèmic" required>
         <br></br>
-        Fotografia: <input type="file" name="foto" id="foto" required>
+        <input type="file" class='selectfile' name="foto" id="foto" required><label for="foto" class='invisible label'> Selecciona fotografia</label>
         <br></br>
         <input type="password" name="contrasenya" class='invisible' placeholder="Contrasenya" required>*
-        <p>* -> El DNI i la contrasenya es faran servir com a usuari i password al Login, respectivament.
+        <p style='font-size:10px;'>* -> El DNI i la contrasenya es faran servir com a usuari i password al Login, respectivament.
         <br>
-        <input type="submit" name="enviar">
+        <br>
+        <input type="submit" class='label button' name="enviar">
     </form>
     <div class="alta">
         <br></br>
