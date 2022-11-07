@@ -13,7 +13,8 @@
 </head>
 <body>
     <?php
-    if (isset($_SESSION["user"])){ 
+
+    if (isset($_SESSION['dni_alumne'])){ 
         if ($_POST) {
             $conexio = mysqli_connect("localhost","root","","infobdn");
             if ($conexio == false){
@@ -82,7 +83,7 @@
                 echo "<input required type='file' name='fotografia' id='fotografia' accept='image/*'>";
                 echo "<br>";
                 echo "<br>";
-                echo "<button type='submit' >Modificar</button>";
+                echo "<button type='submit' class='button label'>Modificar</button>";
                 echo "<br>";
                 echo "<br>";
                 echo "</form>";

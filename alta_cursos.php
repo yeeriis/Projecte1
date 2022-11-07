@@ -53,9 +53,9 @@
                         <br></br>
                         <input type="text" name="hores" class='invisible' placeholder="Hores" required>
                         <br></br>
-                        <input type="date" name="data_inici" class='invisible' placeholder="Data Inici" required>
+                        <input type="date" name="data_inici" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> class='invisible' placeholder="Data Inici" required>
                         <br></br>
-                        <input type="date" name="data_final" class='invisible' placeholder="Data Final" required>
+                        <input type="date" name="data_final" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> class='invisible' placeholder="Data Final" required>
                         <br></br>
                         Professor que imparteix: <select name="dni_professor" id="dni_professor" style='background: transparent;'>
                     <?php

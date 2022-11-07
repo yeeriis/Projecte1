@@ -202,7 +202,7 @@
             $nombreFichero = $nombreDirectorio.$idUnico.".".$extension;
             move_uploaded_file ($_FILES['foto']['tmp_name'],$nombreFichero);
 
-            $sql = "INSERT INTO professors VALUES ('$dni_professor', '$nom', '$cognoms', '$titol_academic', '$nombreFichero', '$contrasenya' , '$visible')";
+            $sql = "INSERT INTO professors VALUES ('$dni_professor', '$nom', '$cognoms', '$titol_academic', '$nombreFichero', '$visible' , '$contrasenya')";
             $consulta = mysqli_query($conexio,$sql);
             if(!$consulta){
                 echo mysqli_error($conexio)."<br>"; 

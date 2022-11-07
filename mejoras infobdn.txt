@@ -1,0 +1,14 @@
+Correcciones InfoBDN:
+
+- Impedir que se escoja una fecha anterior al día de hoy:
+
+	min=<?php $hoy=date("Y-m-d"); echo $hoy;?> -- en alta_cursos.php
+
+- Mostrar nota alumno
+
+	$sql2 = "SELECT nota FROM matricula WHERE dni_alumne = '$dni'"; -- en llistacursalum.php
+	$nota = mysqli_fetch_assoc($resultat2);
+	$notes = $nota['nota'];
+
+- Error de validación en editarfotoalumne.php (Resuelto)
+	Simplemente cambiar en el isset --> isset($_SESSION['user']) por --> isset($_SESSION['dni_alumne'])

@@ -46,6 +46,7 @@
                             <td>Hores</td>
                             <td>Data Inici</td>
                             <td>Data Final</td>
+                            <td>Nota</td>
                             <td>Desmatricular-me</td>
                         </tr>
                     <?php
@@ -83,6 +84,9 @@
                     $resultat = mysqli_query($conexio, $sql);
                     $linies = mysqli_num_rows($resultat);
 
+                    $sql2 = "SELECT nota FROM matricula WHERE dni_alumne = '$dni'";
+                    $resultat2 = mysqli_query($conexio, $sql2);
+                    $linies2 = mysqli_num_rows($resultat2);
                     ?>
                     <h2>Els Meus Cursos</h2>
                     <table border="1" class="taula">
@@ -92,6 +96,7 @@
                             <td>Hores</td>
                             <td>Data Inici</td>
                             <td>Data Final</td>
+                            <td>Nota</td>
                             <td>Desmatricular-me</td>
                         </tr>
                     <?php 
@@ -99,6 +104,8 @@
                     for($i = 0; $i < $linies; $i++){
                         $curs = mysqli_fetch_assoc($resultat);
                         $codi_curs = $curs['codi_curs'];
+                        $nota = mysqli_fetch_assoc($resultat2);
+                        $notes = $nota['nota'];
 
                         echo "<tr style='color: white';>";
                             echo "<td>".$curs['nom']."</td>";
@@ -106,6 +113,7 @@
                             echo "<td>".$curs['hores']."</td>";
                             echo "<td>".$curs['data_inici']."</td>";
                             echo "<td>".$curs['data_final']."</td>";
+                            echo "<td>".$nota['nota']."</td>";
                             echo "<td><a href='desmatriculacio.php?dni=$dni&curs=$codi_curs'><input type='button' value='Desmatricular-me'></a></td>";
                         echo "</tr>";
                     }
